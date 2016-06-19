@@ -7,7 +7,7 @@ yum install -y git vim nodejs
 if [ -e /home/vagrant/dotfiles ]; then
     echo '/home/vagrant/dotfiles already exists. nothing to do'
 else
-    git clone https://github.com/kuroshichimi/dotfiles /home/vagrant/dotfiles
+    sudo -u vagrant git clone https://github.com/kuroshichimi/dotfiles /home/vagrant/dotfiles
     chmod +x /home/vagrant/dotfiles/*.sh
     sudo -u vagrant /home/vagrant/dotfiles/dotfilesLink.sh
     sudo -u vagrant /home/vagrant/dotfiles/neobundle.sh
