@@ -1,7 +1,7 @@
 #!/bin/bash
 yum update
 sudo rpm -Uvh https://rpm.nodesource.com//pub_4.x/el/6/x86_64/nodesource-release-el6-1.noarch.rpm
-yum install -y git vim nodejs
+yum install -y git vim nodejs gcc
 
 #setting dotfiles
 if [ -e /home/vagrant/dotfiles ]; then
@@ -11,4 +11,6 @@ else
     chmod +x /home/vagrant/dotfiles/*.sh
     sudo -u vagrant /home/vagrant/dotfiles/dotfilesLink.sh
     sudo -u vagrant /home/vagrant/dotfiles/neobundle.sh
+    cd /home/vagrant/.vim/bundle/vimproc
+    make -f make_unix.mak
 fi
