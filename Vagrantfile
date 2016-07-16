@@ -12,8 +12,7 @@ Vagrant.configure(2) do |config|
 
     # Every Vagrant development environment requires a box. You can search for
     # boxes at https://atlas.hashicorp.com/search.
-    config.vm.box = "centos64_6_5"
-    config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.5_chef-provisionerless.box"
+    config.vm.box = "bento/centos-6.7"
 
     # Disable automatic box update checking. If you disable this, then
     # boxes will only be checked for updates when the user runs
@@ -49,7 +48,7 @@ Vagrant.configure(2) do |config|
       # vb.gui = true
 
       # Customize the amount of memory on the VM:
-      vb.memory = "1024"
+      vb.memory = "4098"
     end
     #
     # View the documentation for the provider you are using for more
@@ -70,4 +69,7 @@ Vagrant.configure(2) do |config|
     #   sudo apt-get install -y apache2
     # SHELL
     config.vm.provision "shell", path: "setup.sh"
+    config.vm.provision "shell", path: "install-ruby.sh", privileged: false
+    config.vm.provision "shell", path: "install-docker.sh"
+    config.vm.provision "shell", path: "start-gitlab.sh"
 end

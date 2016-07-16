@@ -1,6 +1,6 @@
 #!/bin/bash
-yum update
-sudo rpm -Uvh https://rpm.nodesource.com//pub_4.x/el/6/x86_64/nodesource-release-el6-1.noarch.rpm
+yum update -y
+rpm -Uvh https://rpm.nodesource.com//pub_4.x/el/6/x86_64/nodesource-release-el6-1.noarch.rpm
 yum install -y git vim nodejs gcc
 
 #setting dotfiles
